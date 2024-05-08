@@ -5,11 +5,6 @@
     max-height: 25px;
 }
 
-button {
-    color: white;
-    background-color: black;
-}
-
 img {
     max-width: 400px;
     max-height: 300px;
@@ -19,4 +14,78 @@ img {
     border-style: solid;
     border-color: black;
     width: fit-content;
+}
+
+.draggy {
+    background-color: aqua;
+}
+
+.draggy::selection {
+    border-radius: 3px;
+    color: red;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(+45deg);
+    -webkit-transform: rotate(+45deg);
+}
+
+#button1 {
+    position: absolute;
+    right: 56%;
+    bottom: 66%;
+}
+
+#button2 {
+    position: absolute;
+    right: 78%;
+    bottom: 71%;
+}
+
+#button3 {
+    position: absolute;
+    right: 78%;
+    bottom: 62%;
+}
+
+#red {
+    background-color: red;
+}
+
+#right {
+    position: relative;
+    left: 50%;
+}
+
+#left {
+    position: relative;
+    right: 20%;
+}
+
+.box {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    left: 18%;
+}
+
+#green {
+    background-color: green;
 }

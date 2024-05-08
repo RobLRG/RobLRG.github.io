@@ -14,15 +14,38 @@
     <div class="border" id="anotherPage">
         <h2>Keep in mind page titles should be unique!</h2>
         <a href="index2.html">Go to the other page!</a>
+        <br>
+        <a href="index2.html">Go to another page!</a>
+        <p>woah, there are 2 links that go to the same page?!?!?</p>
+        <br>
+        <h2>The page language should be specified!!</h2>
+        <p>Look for 'html lang="en"' (or something similar) in the code!! </p>
+        <br>
+        <h2>Check for reflow!!</h2>
+        <p>When zoomed to 400% the page should reflow into one column!!</p>
+        <p>this box reflows correctly however many on this page don't!!!</p>
     </div>
     <br>
     <div class="border" id="textSpacing">
         <h2>Text Spacing and sizing Problems</h2>
         <p>Apply Text Spacing/resizing and see how the buttons change!</p>
         <div id="buttonCont">
-            <button id="bad">Hello I am a bad Button!</button>
-            <button>Hello I am a good Button!</button>
+            <button style="color: white;background-color: black;" id="bad">Hello I am a bad Button!</button>
+            <button style="color: white;background-color: black;">Hello I am a good Button!</button>
         </div>
+    </div>
+    <br>
+    <div class="border" id="keyboardCont">
+        <h2>Keyboard issues</h2>
+        <div id="buttonCont2">
+            <button tabindex="-1">Hello I am a bad Button!</button>
+            <button>Hello I am a good Button!</button>
+            <br>
+            <p>The left button is not selectable with the keyboard!!!</p>
+            <br>
+            <p tabindex="0">THIS TEXT CAN BE TABBED TO BUT IT SHOULDNT ALLOW FOR IT</p>
+        </div>
+
     </div>
     <br>
     <div class="border" id="non-textContent">
@@ -69,6 +92,7 @@
             <p>This second video has user generated captions!</p>
         </div>
     </div>
+    <br>
     <div class="border" id="ContrastCont">
         <div id="textCont">
             <h1>Contrast Issues</h1>
@@ -79,15 +103,115 @@
             <h1 style="color: #f123ff; font-size: 20pt;">This Text is Low Contrast but still passes!</h1>
             <br>
             <h1>Its not just Text!!</h1>
-            <label>NAME:</label>
-            <input>
+            <label for="testInput">NAME:</label>
+            <input id="testInput">
             <br><br>
             <label>DATE:</label>
             <input style="background-color: #f9fdad; border: 0cm;">
             <br><br>
             <p>The name input box is ok contrast due to the border!</p>
             <p>The date input box is low contrast as it has no border and the background is low contrast!</p>
+            <br>
+            <p>BUT THATS NOT ALL!!!!</p>
+            <p>The name input box has a correctly associated form label</p>
+            <p>The date input box has a label but it is not correctly associated</p>
         </div>
+    </div>
+    <div class="border">
+        <style>
+            #div1,
+            #div2,
+            #div3 {
+                width: 500px;
+                height: 350px;
+                margin: 10px;
+                padding: 10px;
+                border: 1px solid black;
+            }
+        </style>
+        <script>
+            const outputArr = []
+
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+
+            function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+                ev.dataTransfer.setData("value", ev.target.innerText);
+            }
+
+            function drop(ev) {
+                ev.preventDefault();
+                let data = ev.dataTransfer.getData("text");
+                ev.target.appendChild(document.getElementById(data));
+                let output = document.getElementById("div3");
+                output.innerHTML = "";
+                let value = ev.dataTransfer.getData("value");
+                let text = document.createTextNode(value);
+                if (ev.target.id == "div2") {
+                    outputArr.push(text);
+                }
+                else if (ev.target.id == "div1") {
+                    outputArr.pop(text)
+                }
+                console.log(outputArr);
+                outputArr.forEach(element => {
+                    output.appendChild(document.createTextNode(element.data))
+                });
+            }
+
+        </script>
+        <h2 id="test">Drag and Drop</h2>
+        <!-- <p>Drag the image back and forth between the two div elements.</p> -->
+
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <p class="draggy" draggable="true" ondragstart="drag(event)" id="drag1">Apple</p>
+            <p class="draggy" draggable="true" ondragstart="drag(event)" id="drag2">Banana</p>
+            <p class="draggy" draggable="true" ondragstart="drag(event)" id="drag3">Orange</p>
+            <p class="draggy" draggable="true" ondragstart="drag(event)" id="drag4">Grape</p>
+            <p class="draggy" draggable="true" ondragstart="drag(event)" id="drag5">Pear</p>
+        </div>
+        <!-- <button id="button1"><i class="arrow right"></i></button>
+    <button id="button2"><i class="arrow up"></i></button>
+    <button id="button3"><i class="arrow down"></i></button> -->
+
+        <!-- <button id="button">HELP CHAT</button> -->
+
+
+        <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <br>
+        <p>woah this can be dragged and dropped with the mouse!</p>
+        <p>>:( This doesn't work with the keyboard</p>
+
+    </div>
+    <br>
+    <div class="border" id="FocusOrder">
+        <h1>Focus Order!!</h1>
+        <button id="right">HELLO!!</button>
+        <button id="left">HIII!!!!</button>
+        <br>
+        <p>These buttons are selected in the wrong order!!!!</p>
+    </div>
+    <br>
+    <div class="border" id="colorCont">
+        <h2>Use of colour!!</h2>
+        <p>Presentation can't solely rely on colour!!!</p>
+        <br>
+        <p>is your order ready?</p>
+        <div class="box" id="green"></div>
+        <br>
+        <p>is your order ready?</p>
+        <div class="box" id="red"></div>
+        <br>
+        <p>How could a colour blind user understand this!?!!</p>
+        <br>
+        <p>This is better!!</p>
+        <p>is your order ready?</p>
+        <div class="box" id="green"> YES</div>
+        <br>
+        <p>is your order ready?</p>
+        <div class="box" id="red"> NO</div>
     </div>
 </body>
 
