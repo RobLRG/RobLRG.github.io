@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool page title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Accessibility Issues!!!!!</h1>
+    <br>
+    <div class="border" id="anotherPage">
+        <h2>Keep in mind page titles should be unique!</h2>
+        <a href="index2.html">Go to the other page!</a>
+    </div>
+    <br>
+    <div class="border" id="textSpacing">
+        <h2>Text Spacing and sizing Problems</h2>
+        <p>Apply Text Spacing/resizing and see how the buttons change!</p>
+        <div id="buttonCont">
+            <button id="bad">Hello I am a bad Button!</button>
+            <button>Hello I am a good Button!</button>
+        </div>
+    </div>
+    <br>
+    <div class="border" id="non-textContent">
+        <div id="imgCont">
+            <h2>what is going on in these images?!</h2>
+            <br>
+            <img src="https://static.demilked.com/wp-content/uploads/2018/03/5aaa1cc04ed34-funny-weird-wtf-stock-photos-19-5a3926af95d9d__700.jpg"
+                alt="Woman holding fish at gunpoint">
+            <br>
+            <p>This first image has a descriptive alt tag!!</p>
+            <br>
+            <img src="https://expertphotography.b-cdn.net/wp-content/uploads/2020/06/stock-photography-trends11.jpg">
+            <p>This second image has no alt tag!!</p>
+        </div>
+        <div id="decImgCont">
+            <h2>What about these decorative images?!</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Golden_Snub-nosed_Monkeys%2C_Qinling_Mountains_-_China.jpg"
+                alt>
+            <br>
+            <p>This first image has a null alt tag!!</p>
+            <br>
+            <img src="https://www.thrigbyhall.com/wp-content/uploads/2016/07/Siamang.jpg">
+            <br>
+            <p>This second image has no alt tag!!</p>
+            <br>
+        </div>
+    </div>
+    <br>
+    <div class="border" id="CaptionsCont">
+        <h2>Look at these videos!</h2>
+        <div id="vidCont">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/HI0ntLP47zg?si=BTqAMNoTr0xDTtjH"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            <br>
+            <p>This first video only has auto generated captions!</p>
+            <br>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/tNJHIGhwFNk?si=i7Nd8euvuFZEcli4"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            <br>
+            <p>This second video has user generated captions!</p>
+        </div>
+    </div>
+    <div class="border" id="ContrastCont">
+        <div id="textCont">
+            <h1>Contrast Issues</h1>
+            <h2 style="color: brown;">This Text is high Contrast!!</h2>
+            <h2 style="color: yellow;">This Text is low Contrast!!</h2>
+            <br>
+            <h1>Text size matters!!</h1>
+            <h1 style="color: #f123ff; font-size: 20pt;">This Text is Low Contrast but still passes!</h1>
+            <br>
+            <h1>Its not just Text!!</h1>
+            <label>NAME:</label>
+            <input>
+            <br><br>
+            <label>DATE:</label>
+            <input style="background-color: #f9fdad; border: 0cm;">
+            <br><br>
+            <p>The name input box is ok contrast due to the border!</p>
+            <p>The date input box is low contrast as it has no border and the background is low contrast!</p>
+        </div>
+    </div>
+</body>
+
+</html>
